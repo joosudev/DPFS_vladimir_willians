@@ -1,71 +1,104 @@
-/* Estilos del contenedor principal de detalle del producto */
+/* Detalle del producto */
 .product-detail {
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
   
-  /* Estilo del nombre del producto */
   .product-name {
     font-size: 2.5em;
     font-weight: bold;
     color: #333;
     margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    text-align: center;
   }
   
-  /* Estilo del contenedor de información del producto */
   .product-info {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    gap: 20px;
   }
   
-  /* Estilo de la imagen del producto */
   .product-image {
-    width: 300px; /* Ajustar el tamaño de la imagen */
+    width: 50%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 8px;
+    object-fit: cover;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
   }
   
-  /* Estilo del texto de la descripción */
+  .product-details {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
   .product-description {
     font-size: 1.2em;
     color: #555;
     margin-bottom: 20px;
-    line-height: 1.5;
   }
   
-  /* Estilo del precio del producto */
   .product-price {
     font-size: 1.8em;
-    font-weight: bold;
     color: #28a745;
+    font-weight: bold;
     margin-bottom: 20px;
   }
   
-  /* Estilo del botón de editar producto */
-  .edit-product-btn {
-    background-color: #007bff; /* Color azul */
-    color: white;
-    padding: 10px 20px;
+  .btn-primary,
+  .btn-danger {
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 1em;
+    border: none;
     border-radius: 5px;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: background-color 0.3s ease;
+    cursor: pointer;
+    transition: background-color 0.3s;
   }
   
-  .edit-product-btn:hover {
-    background-color: #0056b3; /* Color más oscuro en hover */
+  .btn-primary {
+    background-color: #28a745;
+    color: white;
+    margin-bottom: 10px;
   }
   
-  .edit-product-btn:active {
-    background-color: #004085; /* Color aún más oscuro al hacer clic */
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  .btn-danger {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #c82333;
+  }
+  
+  .delete-form {
+    margin-top: 20px;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .product-info {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .product-image,
+    .product-details {
+      width: 100%;
+    }
+  
+    .product-price {
+      text-align: center;
+    }
   }
   

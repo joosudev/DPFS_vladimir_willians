@@ -1,0 +1,12 @@
+[
+    {
+      "id": 1,
+      "firstName": "Eren",
+      "lastName": "Jeager",
+      "email": "eren.jeager@example.com",
+      "password": "password123",
+      "category": "admin",
+      "image": "eren.jpg"
+    }
+  ]
+  
