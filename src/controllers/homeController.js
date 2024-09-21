@@ -6,7 +6,7 @@ const products = [
   
   module.exports = {
     index: (req, res) => {
-      res.render('home', { products });
+      res.render('home', { products }); 
     }
   };
   

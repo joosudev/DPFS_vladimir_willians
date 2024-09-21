@@ -1,16 +1,21 @@
 {
   "name": "dpfs_vladimir_willians",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Proyecto e-commerce basado en Node.js, Express y EJS",
+  "main": "app.js",
   "scripts": {
+    "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": ["e-commerce", "nodejs", "express", "ejs"],
+  "author": "Vladimir Willians",
   "license": "ISC",
   "dependencies": {
     "ejs": "^3.1.10",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "mongoose": "^5.12.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

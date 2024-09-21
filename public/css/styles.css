@@ -1,78 +1,278 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  header {
+/* Estilo global */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f8f9fa; /* Fondo claro */
+  color: #333;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/**Header */
+/* Estilo del header */
+header {
+  background-color: #333;
+  padding: 20px 0;
+  position: fixed; /* Header fijo en la parte superior */
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Aseguramos que esté por encima de otros elementos */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+nav .logo {
+  font-size: 1.8em;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  color: #fff;
+  font-size: 1em;
+  text-decoration: none;
+  padding: 10px 15px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #28a745; /* Fondo verde en hover */
+  color: white;
+  border-radius: 5px;
+}
+
+/* Estilo para pantallas pequeñas */
+nav .menu-icon {
+  display: none; /* Ícono del menú oculto en pantallas grandes */
+}
+
+button, .btn {
+  cursor: pointer; /* Mostrar la manito en los botones */
+}
+.btn-secondary {
+  background-color: #dc3545; /* Rojo */
+  margin-top: 20px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.btn-secondary:hover {
+  background-color: #c82333; /* Rojo más oscuro en hover */
+}
+
+.btn-secondary:active {
+  background-color: #bd2130; /* Rojo aún más oscuro al hacer clic */
+}
+
+
+@media (max-width: 768px) {
+  nav ul {
+    display: none; /* Ocultamos el menú en pantallas pequeñas */
+    flex-direction: column;
     background-color: #333;
-    color: #fff;
-    padding: 10px;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    padding: 20px;
+    gap: 10px;
+  }
+
+  nav ul li {
     text-align: center;
   }
-  
-  nav a {
-    color: #fff;
-    margin: 0 15px;
-    text-decoration: none;
+
+  nav ul.show-menu {
+    display: flex; /* Mostramos el menú cuando se activa */
   }
-  
-  footer {
-    margin-top: 20px;
-    text-align: center;
-  }
-  
-  @media (max-width: 600px) {
-    nav a {
-      display: block;
-      margin: 10px 0;
-    }
-  }
-  
-  /* Estilos para el carrusel */
-#carousel {
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .carousel-slide img {
-    width: 100%;
+
+  nav .menu-icon {
     display: block;
+    font-size: 1.5em;
+    color: #fff;
+    cursor: pointer;
   }
-  
-  /* Estilos para los productos destacados */
-  #featured-products {
-    margin-top: 20px;
+}
+
+/* Main container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 100px auto; /* Ajustar el margen superior para no tapar el contenido con el header fijo */
+  padding: 20px;
+  text-align: center;
+  flex: 1; /* Para que el container ocupe el espacio disponible */
+}
+
+h1 {
+  color: #333;
+  font-size: 2.5em;
+  margin-bottom: 40px;
+  font-family: 'Montserrat', sans-serif; /* Título estilizado */
+  letter-spacing: 1px;
+}
+
+/* Grid de productos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columnas de igual tamaño */
+  gap: 30px; /* Mayor espacio entre las tarjetas */
+}
+
+/* Estilo de las tarjetas de producto */
+.project-card {
+  background-color: #fff;
+  border-radius: 10px; /* Borde más redondeado */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px;
+}
+
+.project-card:hover {
+  transform: translateY(-10px); /* Efecto hover */
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Sombra más grande en hover */
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: contain; /* Las imágenes se ajustarán sin cortarse */
+  background-color: #f0f0f0; /* Fondo gris claro para las imágenes */
+  border-bottom: 1px solid #eee;
+}
+
+.project-content {
+  padding: 20px;
+}
+
+.project-content h3 {
+  font-size: 1.6em;
+  margin-bottom: 10px;
+  color: #333;
+  font-weight: 600;
+}
+
+.project-content p {
+  font-size: 1em;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5; /* Mejor separación entre líneas */
+}
+
+/* Botones de acción */
+.project-buttons {
+  display: flex;
+  justify-content: space-around; /* Espacio entre los botones */
+}
+
+.project-buttons .btn {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 30px;
+  text-decoration: none;
+  border-radius: 25px; /* Botones más redondeados */
+  transition: background-color 0.3s;
+  font-size: 0.9em;
+}
+
+.project-buttons .btn:hover {
+  background-color: #218838;
+}
+
+.project-buttons .btn:active {
+  background-color: #1e7e34; /* Color más oscuro al hacer clic */
+}
+
+
+/* Estilo del footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px 0;
+  width: 100%;
+  margin-top: auto;  /* Asegura que el footer esté al final */
+  font-size: 0.9em;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera arriba */
+  border-top: 1px solid #444;  /* Borde superior sutil */
+}
+
+footer p {
+  margin: 0;
+  padding: 0;
+}
+
+footer a {
+  color: #28a745; /* Enlaces en verde */
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  color: #fff;  /* Cambia a blanco al hacer hover */
+}
+
+footer .social-icons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Espacio entre los íconos */
+}
+
+footer .social-icons a {
+  color: #fff;
+  font-size: 1.5em;
+  transition: color 0.3s;
+}
+
+footer .social-icons a:hover {
+  color: #28a745; /* Cambia a verde al hacer hover */
+}
+
+/* Responsividad: 2 productos por fila en pantallas medianas */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
   }
-  
-  .products {
-    display: flex;
-    justify-content: space-between;
-    gap: 20px;
+
+  nav ul {
+    padding-top: 50px;
   }
-  
-  .product {
-    text-align: center;
-    width: 30%;
+}
+
+/* Responsividad: 1 producto por fila en pantallas pequeñas */
+@media (max-width: 480px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
   }
-  
-  .product img {
-    max-width: 100%;
-  }
-  
-  @media (max-width: 768px) {
-    .products {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .product {
-      width: 100%;
-    }
-  }
-  
+}

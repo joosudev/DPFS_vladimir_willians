@@ -1,18 +1,16 @@
 <%- include('../partials/head') %>
 <%- include('../partials/header') %>
 
-<h1>Crear producto</h1>
-<form action="/products/create" method="POST">
-  <label>Nombre:</label>
-  <input type="text" name="name" required>
-
-  <label>Descripción:</label>
-  <textarea name="description" required></textarea>
-
-  <label>Precio:</label>
-  <input type="number" name="price" required>
-
-  <button type="submit">Crear producto</button>
-</form>
+<div class="container">
+  <h1>Crear Producto</h1>
+  <form action="/products/create" method="POST">
+    <input type="text" name="name" placeholder="Nombre" required>
+    <textarea name="description" placeholder="Descripción" required></textarea>
+    <input type="number" name="price" placeholder="Precio" required>
+    <input type="text" name="image" placeholder="Imagen" required>
+    <input type="text" name="category" placeholder="Categoría" required>
+    <button type="submit">Crear</button>
+  </form>
+</div>
 
 <%- include('../partials/footer') %>
