@@ -1,12 +1,27 @@
 [
-    {
-      "id": 1,
-      "firstName": "Eren",
-      "lastName": "Jeager",
-      "email": "eren.jeager@example.com",
-      "password": "password123",
-      "category": "admin",
-      "image": "eren.jpg"
-    }
-  ]
-  
+  {
+    "id": 1,
+    "firstName": "Eren",
+    "lastName": "Jeager",
+    "email": "eren.jeager@example.com",
+    "password": "password123",
+    "category": "admin",
+    "image": "eren.jpg"
+  },
+  {
+    "id": 2,
+    "firstName": "Vladimir",
+    "lastName": "Willians",
+    "email": "vwillians22@gmail.com",
+    "password": "$2a$10$jWP028PZrh35rYA3wu5OOO8Sk8.1X1NXqIJ4ZSkbAbcL.pYeus1.O",
+    "image": "profileImage-1726939222756-476125876.jpg"
+  },
+  {
+    "id": 3,
+    "firstName": "Josue ",
+    "lastName": "Outten",
+    "email": "outtenj@gmail.com",
+    "password": "$2a$10$0hft3qfLs24GTbGPHjJeFuH40lO4xZGMtcFQtQiATD1RSBYTSesKe",
+    "image": "profileImage-1726943337468-409702540.png"
+  }
+]

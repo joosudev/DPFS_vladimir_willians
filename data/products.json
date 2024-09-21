@@ -1,32 +1,36 @@
 [
-    {
-      "id": 1,
-      "name": "Laptop HP",
-      "description": "Potente laptop HP",
-      "image": "hp1.webp",
-      "category": "Electrónica",
-      "colors": ["Negro", "Plata"],
-      "price": 800
-    },
-    {
-      "id": 2,
-      "name": "MacBook Pro",
-      "description": "MacBook Pro de última generación",
-      "image": "macbook1.png",
-      "category": "Electrónica",
-      "colors": ["Plata"],
-      "price": 1200
-    },
-    {
-      "id": 3,
-      "name": "Dell Pro",
-      "description": "Dell Pro de última generación",
-      "image": "dell1.png",
-      "category": "Electrónica",
-      "colors": ["Plata"],
-      "price": 1000
-    }
-  ]
-  
-
-  
+  {
+    "id": 1,
+    "name": "Laptop HP",
+    "description": "Potente laptop HP",
+    "image": "hp1.webp",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "   Plata"
+    ],
+    "price": "800"
+  },
+  {
+    "id": 2,
+    "name": "MacBook Pro",
+    "description": "MacBook Pro de última generación",
+    "image": "macbook1.png",
+    "category": "Electrónica",
+    "colors": [
+      "Plata"
+    ],
+    "price": "1200"
+  },
+  {
+    "id": 3,
+    "name": "Dell Pro",
+    "description": "Dell Pro de última generación",
+    "image": "dell1.png",
+    "category": "Electrónica",
+    "colors": [
+      "Plata"
+    ],
+    "price": "1000"
+  }
+]

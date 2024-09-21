@@ -16,7 +16,7 @@
       <p class="product-price">$<%= product.price %></p>
 
       <!-- Botón para editar el producto -->
-      <a href="/products/edit/<%= product.id %>" class="btn-primary edit-product-btn">Editar producto</a>
+      <a href="/products/<%= product.id %>/edit" class="btn-primary edit-product-btn">Editar producto</a>
 
       <!-- Formulario para eliminar el producto -->
       <form action="/products/<%= product.id %>?_method=DELETE" method="POST" class="delete-form">

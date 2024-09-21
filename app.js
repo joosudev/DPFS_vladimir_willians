@@ -1,6 +1,7 @@
 const express = require('express');
 const methodOverride = require('method-override');
 const path = require('path');
+const session = require('express-session');
 const app = express();
 
 // Rutas de productos y usuarios
@@ -15,16 +16,22 @@ app.set('views', path.join(__dirname, 'src', 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
-// Usar method-override para soportar PUT y DELETE desde los formularios
+// Configurar method-override para usar métodos HTTP como PUT y DELETE
 app.use(methodOverride('_method'));
+
+app.use(session({
+  secret: 'mi-secreto',
+  resave: false,
+  saveUninitialized: true
+}));
 
 // Rutas
 app.use('/products', productRoutes);
 app.use('/users', userRoutes);
 
-// Ruta Home
+// Ruta Home - Aquí pasamos 'req' a la vista
 app.get('/', (req, res) => {
-  res.render('home');
+  res.render('home', { req });  // Pasamos el objeto 'req' a la vista
 });
 
 // Servidor

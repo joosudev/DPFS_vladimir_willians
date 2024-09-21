@@ -2,7 +2,17 @@
 <%- include('./partials/header') %>
 
 <div class="container">
-  <h1>Bienvenido a nuestra tienda</h1>
+  <h1>Bienvenido a nuestra Tienda</h1>
+
+  <div class="auth-buttons">
+    <% if (req.session && req.session.user) { %>
+      <p>¡Hola, <%= req.session.user.firstName %>!</p>
+      <a href="/users/logout" class="btn">Cerrar sesión</a>
+    <% } else { %>
+      <a href="/users/login" class="btn">Iniciar sesión</a>
+      <a href="/users/register" class="btn">Registrar</a>
+    <% } %>
+  </div>
 
   <!-- Carrusel de imágenes -->
   <div class="carousel">
@@ -18,3 +28,4 @@
 </div>
 
 <%- include('./partials/footer') %>
+
