@@ -1,0 +1,30 @@
+<%- include('./partials/head') %>
+<%- include('./partials/header') %>
+
+<main>
+  <!-- Carrusel de imágenes -->
+  <section id="carousel">
+    <div class="carousel-slide">
+      <img src="/img/laptop1.jpg" alt="Oferta 1">
+      <img src="/img/laptop2.jpg" alt="Oferta 2">
+      <img src="/img/laptop3.jpg" alt="Oferta 3">
+    </div>
+  </section>
+
+  <!-- Sección de productos destacados -->
+  <section id="featured-products">
+    <h2>Productos destacados</h2>
+    <div class="products">
+      <% products.forEach(product => { %>
+        <div class="product">
+          <img src="<%= product.image %>" alt="<%= product.name %>">
+          <h3><%= product.name %></h3>
+          <p>$<%= product.price %></p>
+          <a href="/products/detail/<%= product.id %>">Ver detalles</a>
+        </div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<%- include('./partials/footer') %>

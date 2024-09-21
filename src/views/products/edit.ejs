@@ -1,0 +1,18 @@
+<%- include('../partials/head') %>
+<%- include('../partials/header') %>
+
+<h1>Editar producto</h1>
+<form action="/products/edit/<%= product.id %>" method="POST">
+  <label>Nombre:</label>
+  <input type="text" name="name" value="<%= product.name %>" required>
+
+  <label>Descripción:</label>
+  <textarea name="description" required><%= product.description %></textarea>
+
+  <label>Precio:</label>
+  <input type="number" name="price" value="<%= product.price %>" required>
+
+  <button type="submit">Guardar cambios</button>
+</form>
+
+<%- include('../partials/footer') %>
