@@ -2,20 +2,20 @@
   {
     "id": 1,
     "name": "Laptop HP",
-    "description": "Potente laptop HP",
-    "image": "hp1.webp",
+    "description": "Potente laptop HP Envy",
+    "image": "HP_Envy.png",
     "category": "Electrónica",
     "colors": [
       "Negro",
       "   Plata"
     ],
-    "price": "800"
+    "price": "900"
   },
   {
     "id": 2,
-    "name": "MacBook Pro",
-    "description": "MacBook Pro de última generación",
-    "image": "macbook1.png",
+    "name": "HP_Probook.png",
+    "description": "HP Probook Ultima Generación",
+    "image": "HP_Probook.png",
     "category": "Electrónica",
     "colors": [
       "Plata"
@@ -24,13 +24,158 @@
   },
   {
     "id": 3,
-    "name": "Dell Pro",
-    "description": "Dell Pro de última generación",
-    "image": "dell1.png",
+    "name": "Dell Inspiron",
+    "description": "Dell Inspiron",
+    "image": "Dell_Inspiron.png",
     "category": "Electrónica",
     "colors": [
       "Plata"
     ],
     "price": "1000"
+  },
+  {
+    "id": 4,
+    "name": "Dell XPS",
+    "description": "Potente Dell XPS ",
+    "image": "Dell_Inspiron.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1200"
+  },
+  {
+    "id": 5,
+    "name": "Dell XPS",
+    "description": "Potente Dell XPS ",
+    "image": "Dell_Inspiron.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "800"
+  },
+  {
+    "id": 6,
+    "name": "Dell",
+    "description": "Laptop Dell",
+    "image": "Dell.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1050"
+  },
+  {
+    "id": 7,
+    "name": "Lenovo Ideapad",
+    "description": "Nueva Lenovo Ideapad",
+    "image": "Lenovo_Ideapad.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1100"
+  },
+  {
+    "id": 8,
+    "name": "Lenovo Notebook",
+    "description": "Lenovo Notebook",
+    "image": "Lenovo_Netbook.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1150"
+  },
+  {
+    "id": 9,
+    "name": "Lenovo Ideapad",
+    "description": "Nueva Lenovo Ideapad",
+    "image": "Lenovo_Ideapad.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1050"
+  },
+  {
+    "id": 10,
+    "name": "Lenovo thinkpad",
+    "description": "Nueva Lenovo thinkpad",
+    "image": "Lenovo_Ideapad.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro"
+    ],
+    "price": "975"
+  },
+  {
+    "id": 11,
+    "name": "Macbook Air",
+    "description": "Nueva Macbook Air",
+    "image":"Macbook_Air.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Blanco"
+    ],
+    "price": "1400"
+  },
+  {
+    "id": 12,
+    "name": "Macbook Pro",
+    "description": "Potente Macbook Pro",
+    "image":"Macbook_Pro.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Blanco"
+    ],
+    "price": "1750"
+  },
+  {
+    "id": 13,
+    "name": "Macbook Air Pro",
+    "description":"Nueva y Potente Macbook Air Pro",
+    "image":"Macbook_Air_Pro.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Blanco"
+    ],
+    "price": "1750"
+  },
+   {
+    "id": 14,
+    "name": "Laptop Acer",
+    "description": "Laptop Acer",
+    "image":"Laptop_Acer.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Blanco"
+    ],
+    "price": "1750"
+  },
+  {
+    "id": 15,
+    "name": "Laptop Toshiba",
+    "description":"Nueva Laptop Toshiba",
+    "image":"Toshiba.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "Plata"
+    ],
+    "price": "1750"
   }
+  
+  
 ]
