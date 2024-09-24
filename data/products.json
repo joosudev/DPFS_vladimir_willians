@@ -120,7 +120,7 @@
     "id": 11,
     "name": "Macbook Air",
     "description": "Nueva Macbook Air",
-    "image":"Macbook_Air.png",
+    "image": "Macbook_Air.png",
     "category": "Electrónica",
     "colors": [
       "Negro",
@@ -132,7 +132,7 @@
     "id": 12,
     "name": "Macbook Pro",
     "description": "Potente Macbook Pro",
-    "image":"Macbook_Pro.png",
+    "image": "Macbook_Pro.png",
     "category": "Electrónica",
     "colors": [
       "Negro",
@@ -143,20 +143,8 @@
   {
     "id": 13,
     "name": "Macbook Air Pro",
-    "description":"Nueva y Potente Macbook Air Pro",
-    "image":"Macbook_Air_Pro.png",
-    "category": "Electrónica",
-    "colors": [
-      "Negro",
-      "Blanco"
-    ],
-    "price": "1750"
-  },
-   {
-    "id": 14,
-    "name": "Laptop Acer",
-    "description": "Laptop Acer",
-    "image":"Laptop_Acer.png",
+    "description": "Nueva y Potente Macbook Air Pro",
+    "image": "Macbook_Air_Pro.png",
     "category": "Electrónica",
     "colors": [
       "Negro",
@@ -165,10 +153,22 @@
     "price": "1750"
   },
   {
+    "id": 14,
+    "name": "Laptop Acer",
+    "description": "Laptop Acer",
+    "image": "Laptop_Acer.png",
+    "category": "Electrónica",
+    "colors": [
+      "Negro",
+      "  Blanco"
+    ],
+    "price": "1750"
+  },
+  {
     "id": 15,
     "name": "Laptop Toshiba",
-    "description":"Nueva Laptop Toshiba",
-    "image":"Toshiba.png",
+    "description": "Nueva Laptop Toshiba",
+    "image": "Toshiba.png",
     "category": "Electrónica",
     "colors": [
       "Negro",
@@ -176,6 +176,4 @@
     ],
     "price": "1750"
   }
-  
-  
 ]

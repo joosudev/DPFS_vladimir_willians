@@ -23,5 +23,13 @@
     "email": "outtenj@gmail.com",
     "password": "$2a$10$0hft3qfLs24GTbGPHjJeFuH40lO4xZGMtcFQtQiATD1RSBYTSesKe",
     "image": "profileImage-1726943337468-409702540.png"
+  },
+  {
+    "id": 4,
+    "firstName": "jeimy",
+    "lastName": "jimenez",
+    "email": "jeimy.jimenez@example.com",
+    "password": "$2a$10$i72Qqh4CecmH7uErI7j.YuG7rcQ9VkrQPErJBzIUgz9OwAoDubzau",
+    "image": "profileImage-1727158028740-772987913.jpg"
   }
 ]

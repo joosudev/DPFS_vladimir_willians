@@ -4,6 +4,9 @@ const path = require('path');
 const session = require('express-session');
 const app = express();
 
+// Importa la configuración de Sequelize
+const db = require('./models'); // Aquí se corrige el error
+
 // Rutas de productos y usuarios
 const productRoutes = require('./src/routes/productRoutes');
 const userRoutes = require('./src/routes/userRoutes');
@@ -33,6 +36,15 @@ app.use('/users', userRoutes);
 app.get('/', (req, res) => {
   res.render('home', { req });  // Pasamos el objeto 'req' a la vista
 });
+
+// Conexión a la base de datos con Sequelize
+db.sequelize.authenticate()
+  .then(() => {
+    console.log('Conexión exitosa a la base de datos.');
+  })
+  .catch(err => {
+    console.error('Error de conexión a la base de datos:', err);
+  });
 
 // Servidor
 app.listen(3000, () => {

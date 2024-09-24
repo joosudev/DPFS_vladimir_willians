@@ -32,7 +32,7 @@
     <!-- Aquí agregamos el campo 'colors' -->
     <div class="form-group">
       <label for="colors">Colores (separados por comas):</label>
-      <input type="text" name="colors" value="<%= product.colors.join(', ') %>" required>
+      <input type="text" name="colors" value="<%= product.colors ? product.colors.join(', ') : '' %>" required>
     </div>
 
     <button type="submit" class="btn-primary">Guardar cambios</button>
