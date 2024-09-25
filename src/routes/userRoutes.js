@@ -1,27 +1,26 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController');  // Ruta correcta hacia el controlador
-const upload = require('./middlewares/multerConfig');  // Middleware de subida de archivos ajustado
-const authMiddleware = require('./middlewares/authmiddleware');  // Middleware de autenticación
-const db = require('../../models'); // Ajusta la ruta para asegurarte que apunta a la carpeta models correctamente
+const userController = require('../controllers/userController'); // Verifica que esté correctamente importado
+const upload = require('./middlewares/multerConfig');
+const authMiddleware = require('./middlewares/authmiddleware');
+const { body } = require('express-validator');
+
+// Validaciones para el registro de usuarios
+const validateRegister = [
+  body('firstName').notEmpty().withMessage('El nombre es obligatorio').isLength({ min: 2 }).withMessage('El nombre debe tener al menos 2 caracteres'),
+  body('lastName').notEmpty().withMessage('El apellido es obligatorio').isLength({ min: 2 }).withMessage('El apellido debe tener al menos 2 caracteres'),
+  body('email').isEmail().withMessage('Debe ingresar un email válido'),
+  body('password').isLength({ min: 8 }).withMessage('La contraseña debe tener al menos 8 caracteres')
+];
 
 // Rutas de usuario
-router.get('/register', userController.registerForm);
-router.post('/register', upload.single('profileImage'), userController.register);  // Incluida la subida de imagen
-router.get('/login', userController.loginForm);
-router.post('/login', userController.login);
-router.get('/logout', userController.logout);
-router.get('/profile', authMiddleware, userController.profile);
+router.get('/register', userController.registerForm); // Aquí se asegura que userController tiene una función registerForm
+router.post('/register', upload.single('profileImage'), validateRegister, userController.register); // Verifica que userController.register esté definido
 
-// Nueva ruta para consultar todos los usuarios (ruta de prueba)
-router.get('/test-users', async (req, res) => {
-  try {
-    const users = await db.User.findAll();  // Consulta a todos los usuarios en la base de datos
-    res.json(users);  // Devuelve los usuarios en formato JSON
-  } catch (error) {
-    console.error(error);  // Muestra el error en la consola para depuración
-    res.status(500).json({ error: 'Error al obtener los usuarios' });  // Devuelve un error si falla
-  }
-});
+router.get('/login', userController.loginForm); // Asegúrate de que userController.loginForm esté bien definido
+router.post('/login', userController.login); // Asegúrate de que userController.login esté bien definido
+
+router.get('/logout', userController.logout); // Revisa que el método logout esté definido
+router.get('/profile', authMiddleware, userController.profile); // Revisa que el método profile esté correctamente implementado
 
 module.exports = router;

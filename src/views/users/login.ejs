@@ -1,7 +1,6 @@
 <%- include('../partials/head') %>
 <%- include('../partials/header') %>
 
-
 <div class="container login-form-container">
   <h2>Iniciar sesión</h2>
 
@@ -9,7 +8,7 @@
   <form action="/users/login" method="POST">
     <div class="login-form-group">
       <label for="email">Correo electrónico:</label>
-      <input type="email" id="email" name="email" placeholder="Ingresa tu correo" required>
+      <input type="email" id="email" name="email" placeholder="Ingresa tu correo" value="<%= typeof oldData !== 'undefined' ? oldData.email : '' %>" required>
     </div>
 
     <div class="login-form-group">
@@ -20,8 +19,13 @@
     <button type="submit" class="btn-login">Iniciar sesión</button>
   </form>
 
-  <% if (error) { %>
-    <p class="login-error"><%= error %></p>
+  <!-- Mostrar errores si existen -->
+  <% if (errors && errors.length > 0) { %>
+    <div class="login-errors">
+      <% errors.forEach(error => { %>
+        <p class="login-error" style="color: red;"><%= error.msg %></p>
+      <% }) %>
+    </div>
   <% } %>
 </div>
 

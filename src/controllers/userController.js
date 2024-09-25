@@ -1,75 +1,94 @@
 const bcrypt = require('bcryptjs');
-const fs = require('fs');
-const path = require('path');
-
-const usersFilePath = path.join(__dirname, '../../data/users.json'); // Ajusta la ruta si es necesario
-let users = JSON.parse(fs.readFileSync(usersFilePath, 'utf-8'));
+const { validationResult } = require('express-validator');
+const db = require('../../models');
 
 module.exports = {
+    // Formulario de registro
     registerForm: (req, res) => {
-        res.render('users/register', { error: null });
+        res.render('users/register', { errors: [], oldData: {} });
     },
 
-    register: (req, res) => {
-        const { firstName, lastName, email, password } = req.body;
-
-        // Verificar si el email ya está registrado
-        const userExists = users.find(user => user.email === email);
-        if (userExists) {
+    // Registro de usuario
+    register: async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
             return res.render('users/register', {
-                error: 'El email ya está registrado.'
+                errors: errors.array(),
+                oldData: req.body
             });
         }
 
-        // Encriptar la contraseña
-        const hashedPassword = bcrypt.hashSync(password, 10);
+        try {
+            const existingUser = await db.User.findOne({ where: { email: req.body.email } });
+            if (existingUser) {
+                return res.render('users/register', {
+                    errors: [{ msg: 'El email ya está registrado' }],
+                    oldData: req.body
+                });
+            }
 
-        // Crear nuevo usuario
-        const newUser = {
-            id: users.length + 1,
-            firstName,
-            lastName,
-            email,
-            password: hashedPassword,
-            image: req.file ? req.file.filename : 'default.jpg'  // Manejar imagen de perfil
-        };
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            const newUser = await db.User.create({
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                email: req.body.email,
+                password: hashedPassword,
+                profileImage: req.file ? req.file.filename : 'default.jpg'
+            });
 
-        // Agregar el nuevo usuario al archivo JSON
-        users.push(newUser);
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, 2));
-
-        // Redirigir al login después del registro
-        res.redirect('/users/login');
+            res.redirect('/users/login');
+        } catch (error) {
+            console.error('Error al registrar el usuario:', error);
+            res.status(500).send('Error en el servidor');
+        }
     },
 
+    // Formulario de inicio de sesión
     loginForm: (req, res) => {
-        res.render('users/login', { error: null });
+        res.render('users/login', { errors: [] });
     },
 
-    login: (req, res) => {
+    // Inicio de sesión
+    login: async (req, res) => {
         const { email, password } = req.body;
-        const user = users.find(user => user.email === email);
 
-        if (!user) {
-            return res.render('users/login', { error: 'Credenciales incorrectas.' });
+        try {
+            const user = await db.User.findOne({ where: { email } });
+            if (!user) {
+                return res.render('users/login', { errors: [{ msg: 'Credenciales incorrectas.' }] });
+            }
+
+            const passwordMatches = await bcrypt.compare(password, user.password);
+            if (!passwordMatches) {
+                return res.render('users/login', { errors: [{ msg: 'Credenciales incorrectas.' }] });
+            }
+
+            req.session.user = {
+                id: user.id,
+                firstName: user.firstName,
+                lastName: user.lastName,
+                email: user.email,
+                profileImage: user.profileImage
+            };
+            res.redirect('/users/profile');
+        } catch (error) {
+            console.error('Error en el inicio de sesión:', error);
+            res.status(500).send('Error en el servidor');
         }
-
-        const passwordMatches = bcrypt.compareSync(password, user.password);
-        if (!passwordMatches) {
-            return res.render('users/login', { error: 'Credenciales incorrectas.' });
-        }
-
-        // Guardar el usuario en la sesión
-        req.session.user = user;
-        res.redirect('/');
     },
 
+    // Cerrar sesión
     logout: (req, res) => {
         req.session.destroy();
         res.redirect('/');
     },
 
+    // Perfil de usuario
     profile: (req, res) => {
+        if (!req.session.user) {
+            return res.redirect('/users/login');
+        }
+
         res.render('users/profile', { user: req.session.user });
     }
 };
