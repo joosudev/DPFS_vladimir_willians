@@ -110,7 +110,7 @@ npm start
 Abre un navegador y visita:
 
 ```
-http://localhost:3001
+http://localhost:3000
 ```
 
 ## API Endpoints
