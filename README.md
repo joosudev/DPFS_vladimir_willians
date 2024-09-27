@@ -80,8 +80,8 @@ El proyecto sigue el patrón **MVC**:
 ### Paso 1: Clonar el repositorio
 
 ```bash
-git clone https://github.com/tu-usuario/proyecto-ecommerce.git
-cd proyecto-ecommerce
+git clone https://github.com/joosudev/DPFS_vladimir_willians.git
+cd mitienda
 ```
 
 ### Paso 2: Instalar las dependencias
